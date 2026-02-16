@@ -1,0 +1,367 @@
+/* ---------------- GLOBAL ---------------- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+    background-color: #004d40;
+    padding: 15px 0;
+    width: 100vw;
+    margin: 0 0 20px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    font-size: 1rem;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #00796b;
+    border-radius: 5px;
+}
+
+.navbar a.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.navbar a.logo:hover {
+    background-color: transparent;
+}
+
+/* ---------------- HERO IMAGE ---------------- */
+.hero-image {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-image: url("images/Island1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-text {
+    color: white;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+}
+
+/* ---------------- PAGE HEADER (INNER PAGES) ---------------- */
+.header {
+    text-align: center;
+    padding: 30px 20px 20px;
+    max-width: 900px;
+    margin: 20px auto 30px auto;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #004d40;
+}
+
+.header p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ---------------- PAGE CONTENT ---------------- */
+.page-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* ---------------- ABOUT IMAGE ---------------- */
+.about-image {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ---------------- CONTENT BOX ---------------- */
+.content-box {
+    background-color: #e0f2f1;
+    color: #004d40;
+    padding: 40px 30px;
+    margin: 30px 0;
+    border-radius: 10px;
+    width: 100vw;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* ---------------- ABOUT LIST ---------------- */
+.about-list {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.about-intro {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.about-intro p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+
+/* ---------------- ACTIVITIES (HOME PAGE) ---------------- */
+.content-box .activities {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ---------------- ACTIVITY CARDS (EXPLORE PAGE) ---------------- */
+.activity-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .activity-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .activity-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.activity-card {
+    width: 280px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    text-decoration: none;
+    color: #004d40;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.activity-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.activity-card p {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* ---------------- EXPLORE BUTTONS ---------------- */
+.explore-nav {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.explore-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 10px;
+    background-color: #2b7a78;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.explore-btn:hover {
+    background-color: #205e5c;
+}
+
+/* ---------------- BOOK BUTTON ---------------- */
+.book-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #2b7a78;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+/* ---------------- FOOTER ---------------- */
+.footer-section {
+    background-color: #004d40;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+.footer-section .photo-credit {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.footer-section .photo-credit a {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+/* ---------------- BOOKING PAGE ---------------- */
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.booking-options,
+.booking-summary {
+    background-color: #e0f2f1;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Make mobile responsive */
+@media (max-width: 768px) {
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dropdown */
+.booking-options select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Quantity input */
+.booking-options input {
+    width: 70px;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Main booking buttons */
+.booking-options button,
+.booking-summary button {
+    padding: 10px 20px;
+    background-color: #2b7a78;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+}
+
+.booking-options button:hover,
+.booking-summary button:hover {
+    background-color: #205e5c;
+}
+
+/* Booking summary list */
+.booking-summary ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.booking-summary li {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 8px 10px;
+    border-radius: 6px;
+}
+
+/* Remove button inside list */
+.booking-summary li button {
+    background-color: #c62828;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+
+.booking-summary li button:hover {
+    background-color: #8e0000;
+}
+
+/* Clear booking button spacing */
+.booking-summary button:nth-of-type(2) {
+    margin-left: 10px;
+}
+
+/* Confirmation message */
+#confirmation-message {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #004d40;
+    min-height: 20px;
+}

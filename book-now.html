@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html" class="logo">Taniti Island</a></li>
+        <li><a href="about.html">About Taniti</a></li>
+        <li><a href="explore.html">Explore Taniti</a></li>
+        <li><a href="book-now.html" class="active">Book Now</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <header class="header">
+        <h1>Book Your Trip</h1>
+    </header>
+
+    <div class="booking-container">
+
+        <!-- LEFT SIDE -->
+        <section class="booking-options">
+            <h2>Select Your Activities</h2>
+            <p>***Please note prices are per person***</p>
+
+            <label for="activity">Choose an activity:</label><br><br>
+
+            <select id="activity">
+                <option value="">-- Select Activity --</option>
+                <option value="Snorkeling" data-price="75">Snorkeling - $75</option>
+                <option value="Volcano Hike" data-price="120">Volcano Hike - $120</option>
+                <option value="Ziplining" data-price="90">Ziplining - $90</option>
+                <option value="Helicopter Tour" data-price="250">Helicopter Tour - $250</option>
+                <option value="Fishing Tour" data-price="150">Fishing Tour - $150</option>
+                <option value="Rainforest Tour" data-price="100">Rainforest Tour - $100</option>
+            </select>
+
+            <br><br>
+
+            <label for="quantity">Quantity:</label><br><br>
+            <input type="number" id="quantity" value="1" min="1">
+
+            <br><br>
+
+            <button onclick="addActivity()">Add Activity</button>
+        </section>
+
+        <!-- RIGHT SIDE -->
+        <section class="booking-summary">
+            <h2>Booking Summary</h2>
+
+            <ul id="selected-activities"></ul>
+
+            <p><strong>Total: $<span id="total">0</span></strong></p>
+
+            <button onclick="bookNow()">Book Now</button>
+            <button onclick="clearBooking()">Clear Booking</button>
+
+            <p id="confirmation-message"></p>
+        </section>
+
+    </div>
+
+</main>
+
+<footer class="footer-section">
+    <p>© 2026 Taniti Island Tourism</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+let booking = {};
+let total = 0;
+
+function addActivity() {
+    const select = document.getElementById("activity");
+    const quantityInput = document.getElementById("quantity");
+    const selectedOption = select.options[select.selectedIndex];
+
+    if (select.value === "") return;
+
+    const activityName = select.value;
+    const price = parseInt(selectedOption.getAttribute("data-price"));
+    const quantity = parseInt(quantityInput.value);
+
+    if (booking[activityName]) {
+        booking[activityName].quantity += quantity;
+    } else {
+        booking[activityName] = {
+            price: price,
+            quantity: quantity
+        };
+    }
+
+    updateSummary();
+
+    select.value = "";
+    quantityInput.value = 1;
+}
+
+function updateSummary() {
+    const list = document.getElementById("selected-activities");
+    list.innerHTML = "";
+    total = 0;
+
+    for (let activity in booking) {
+        const item = booking[activity];
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
+            ${activity} (x${item.quantity}) - $${itemTotal}
+            <button onclick="removeActivity('${activity}')">Remove</button>
+        `;
+        list.appendChild(listItem);
+    }
+
+    document.getElementById("total").textContent = total;
+}
+
+function removeActivity(activity) {
+    delete booking[activity];
+    updateSummary();
+}
+
+function clearBooking() {
+    booking = {};
+    total = 0;
+    document.getElementById("selected-activities").innerHTML = "";
+    document.getElementById("total").textContent = "0";
+    document.getElementById("confirmation-message").textContent = "";
+}
+
+function bookNow() {
+    if (total === 0) {
+        alert("Please select at least one activity.");
+        return;
+    }
+
+    clearBooking();
+
+    document.getElementById("confirmation-message").textContent =
+        "You have successfully booked your perfect vacation!";
+}
+
+</script>
+
+</body>
+</html>
